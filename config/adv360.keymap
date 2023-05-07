@@ -5,6 +5,10 @@
 #include <dt-bindings/zmk/backlight.h>
 #include <dt-bindings/zmk/outputs.h>
 
+#define HYPER LS(LC(LA(LGUI)))
+#define MEH LS(LC(LA))
+#define AMETHYST_PREFIX LS(LA)
+
 / {
   behaviors {
     #include "macros.dtsi"
@@ -31,7 +35,7 @@
    &kp TAB         &kp Q     &kp W     &kp E     &kp R   &kp T            &kp DEL                                                                                 &none   &kp Y     &kp U      &kp I    &kp O      &kp P   &kp BSLH
  &kp MINUS         &kp A     &kp S     &kp D     &kp F   &kp G            &kp ESC  &kp GRAVE       &kp GRAVE   &none   &none         &kp LGUI      &kp RCTRL  &kp MINUS   &kp H     &kp J      &kp K    &kp L   &kp SEMI    &kp SQT
      &none         &kp Z     &kp X     &kp C     &kp V   &kp B              &none      &none      &kp DELETE   &none   &none        &kp PG_UP          &none      &none   &kp N     &kp M  &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
- &kp LCTRL  &kp LEFT_ALT  &kp CAPS  &kp LEFT  &kp LCMD                      &mo 1  &kp ENTER  &kp LEFT_SHIFT                  &macro_amethyst  &kp BACKSPACE  &kp SPACE          &kp LEFT   &kp DOWN   &kp UP  &kp RIGHT      &mo 2
+ &kp LCTRL  &kp LEFT_ALT  &kp CAPS  &kp LEFT  &kp LCMD                      &mo 1  &kp ENTER  &kp LEFT_SHIFT                  &kp LS(LEFT_ALT)  &kp BACKSPACE  &kp SPACE          &kp LEFT   &kp DOWN   &kp UP  &kp RIGHT      &mo 2
             >;
         };
 
@@ -47,7 +51,7 @@
 
         layer_Apps {
             bindings = <
-  &to 0  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6            &tog 1                                                   &mo 3  &kp F7  &kp F8           &kp F9  &kp F10  &kp F11  &reset
+  &to 0  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6            &tog 1                                                   &mo 3  &kp F7  &kp F8           &kp F9  &kp F10  &kp F11  &trans
  &trans  &trans  &trans  &trans  &trans  &trans             &none                                                   &none  &trans  &trans           &trans   &trans   &trans  &trans
  &trans  &trans  &trans  &trans  &trans  &trans             &none  &trans  &trans   &none   &none  &trans  &trans   &none  &trans  &trans           &trans   &trans   &trans  &trans
  &trans  &trans  &trans  &trans  &trans  &trans             &none   &none  &trans   &none   &none  &trans   &none   &none  &trans  &trans           &trans   &trans   &trans  &trans
