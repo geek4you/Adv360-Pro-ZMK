@@ -2,7 +2,7 @@ macro_hyper: macro_hyper{
 compatible = "zmk,behavior-macro";
 label = "macro_hyper";
 #binding-cells = <0>;
-bindings = <&kp LEFT_COMMAND>;
+bindings = <&kp LEFT_CONTROL>, <&kp LEFT_SHIFT>, <&kp LEFT_ALT>, <&kp LEFT_COMMAND>;
 };
 macro_meh: macro_meh{
 compatible = "zmk,behavior-macro";

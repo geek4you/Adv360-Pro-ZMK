@@ -47,7 +47,7 @@
             >;
         };
 
-        layer_keypad {
+        layer_Symbols {
             bindings = <
  &kp EQUAL       &kp N1      &kp N2                &kp N3                 &kp N4        &kp N5            &bootloader                                                               &mo 3  &kp N6  &kp KP_NUM      &kp KP_EQUAL  &kp KP_DIVIDE  &kp KP_MULTIPLY  &bootloader
    &kp TAB        &kp Q    &kp HASH        &kp LEFT_BRACE        &kp RIGHT_BRACE         &kp T                  &none                                                               &none   &kp Y   &kp KP_N7         &kp KP_N8      &kp KP_N9     &kp KP_MINUS     &kp BSLH
@@ -57,9 +57,9 @@
             >;
         };
 
-        layer_fn {
+        layer_Apps {
             bindings = <
- &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6            &tog 1                                                   &mo 3  &kp F7  &kp F8           &kp F9  &kp F10  &kp F11  &reset
+  &to 0  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6            &tog 1                                                   &mo 3  &kp F7  &kp F8           &kp F9  &kp F10  &kp F11  &reset
  &trans   &none   &none   &none  &trans  &trans             &none                                                   &none  &trans  &trans           &trans   &trans   &trans  &trans
  &trans  &trans  &trans  &trans  &trans  &trans             &none  &trans  &trans   &none   &none  &trans  &trans   &none  &trans  &trans           &trans   &trans   &trans  &trans
  &trans  &trans  &trans  &trans  &trans  &trans             &none   &none  &trans   &none   &none  &trans   &none   &none  &trans  &trans           &trans   &trans   &trans  &trans
@@ -74,6 +74,16 @@
   &none         &none         &none         &none         &none         &none            &rgb_ug RGB_MEFS_CMD 5  &bt BT_CLR   &none   &none   &none  &bt BT_CLR  &bt BT_CLR  &rgb_ug RGB_MEFS_CMD 5         &none         &none         &none         &none         &none   &none
   &none         &none         &none         &none         &none         &none                             &none       &none   &none   &none   &none       &none       &none                   &none         &none         &none         &none         &none         &none   &none
   &none         &none         &none    &bl BL_INC    &bl BL_DEC                                 &rgb_ug RGB_TOG  &bl BL_TOG   &none                       &none  &bl BL_TOG         &rgb_ug RGB_TOG                  &bl BL_INC    &bl BL_DEC         &none         &none   &none
+            >;
+        };
+
+        layer_Colemak {
+            bindings = <
+ &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+ &trans  &trans  &trans  &trans  &trans  &trans            &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+ &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+ &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+ &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans                  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
             >;
         };
 
