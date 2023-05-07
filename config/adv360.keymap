@@ -5,9 +5,8 @@
 #include <dt-bindings/zmk/backlight.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#define HYPER LS(LC(LA(LGUI)))
-#define MEH LS(LC(LA))
-#define AMETHYST_PREFIX LS(LA)
+#define HYPER LS(LC(LA(LCMD)))
+#define MEH LS(LC(LEFT_ALT))
 
 / {
   behaviors {
