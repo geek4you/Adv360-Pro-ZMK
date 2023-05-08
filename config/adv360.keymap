@@ -8,6 +8,13 @@
 #define HYPER LS(LC(LA(LCMD)))
 #define MEH LS(LC(LEFT_ALT))
 
+#define DEFAULT 0
+#define SYMBOLS 1
+#define KEYPAD  2
+#define APPS    3
+#define MOD     4
+#define COLEMAK 5
+
 / {
   behaviors {
     #include "macros.dtsi"
@@ -30,27 +37,38 @@
 
         default_layer {
             bindings = <
-     &kp EQUAL        &kp N1    &kp N2    &kp N3    &kp N4  &kp N5             &tog 1                                                                                 &mo 3  &kp N6    &kp N7     &kp N8   &kp N9     &kp N0      &sl 2
+     &kp LC(UP)        &kp N1    &kp N2    &kp N3    &kp N4  &kp N5             &tog SYMBOLS                                                                                 &mo MOD  &kp N6    &kp N7     &kp N8   &kp N9     &kp N0      &sl APPS
        &kp TAB         &kp Q     &kp W     &kp E     &kp R   &kp T            &kp DEL                                                                                 &none   &kp Y     &kp U      &kp I    &kp O      &kp P   &kp BSLH
      &kp MINUS         &kp A     &kp S     &kp D     &kp F   &kp G            &kp ESC  &kp GRAVE       &kp GRAVE   &none   &none         &kp LGUI      &kp RCTRL  &kp MINUS   &kp H     &kp J      &kp K    &kp L   &kp SEMI    &kp SQT
-&kp LEFT_SHIFT         &kp Z     &kp X     &kp C     &kp V   &kp B              &none      &none      &kp DELETE   &none   &none        &kp PG_UP          &none      &none   &kp N     &kp M  &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-     &kp LCTRL  &kp LEFT_ALT  &kp CAPS  &kp LEFT  &kp LCMD                      &mo 1  &kp ENTER  &kp LEFT_SHIFT                  &kp LS(LEFT_ALT)  &kp SPACE  &kp BACKSPACE          &kp LEFT   &kp DOWN   &kp UP  &kp RIGHT      &mo 2
+&kp LEFT_SHIFT         &kp Z     &kp X     &kp C     &kp V   &kp B              &none      &none      &kp DELETE   &none   &none        &tog SYMBOLS          &none      &none   &kp N     &kp M  &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
+     &kp LCTRL  &kp LEFT_ALT  &kp CAPS  &tog KEYPAD  &kp LCMD                      &mo SYMBOLS  &kp ENTER  &kp LEFT_SHIFT                  &kp LS(LEFT_ALT)  &kp SPACE  &kp BACKSPACE          &kp LEFT   &kp DOWN   &kp UP  &kp RIGHT      &mo APPS
             >;
         };
 
         layer_Symbols {
             bindings = <
- &kp EQUAL       &kp N1      &kp N2                &kp N3                 &kp N4        &kp N5            &bootloader                                                               &mo 3  &kp N6  &kp KP_NUM      &kp KP_EQUAL  &kp KP_DIVIDE  &kp KP_MULTIPLY  &bootloader
+ &to DEFAULT       &kp N1      &kp N2                &kp N3                 &kp N4        &kp N5            &bootloader                                                               &mo MOD  &kp N6  &kp KP_NUM      &kp KP_EQUAL  &kp KP_DIVIDE  &kp KP_MULTIPLY  &bootloader
+   &kp TAB        &kp Q    &kp AT        &kp LEFT_BRACE        &kp RIGHT_BRACE         &kp T                  &none                                                               &none   &kp Y   &kp KP_N7         &kp KP_N8      &kp KP_N9     &kp KP_MINUS     &kp BSLH
+   &kp ESC       &kp HASH  &kp DOLLAR  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp ASTERISK                  &none   &trans    &trans   &none   &none     &trans     &trans      &none   &kp H   &kp EQUAL         &kp GREATER_THAN      &kp KP_N6      &kp KP_PLUS      &kp SQT
+ &kp LSHFT  &kp PERCENT   &kp CARET      &kp LEFT_BRACKET      &kp RIGHT_BRACKET     &kp GRAVE                  &none    &none  &to COLEMAK   &none   &none  &kp PG_UP      &none      &none   &kp N   &kp KP_N1         &kp KP_N2      &kp KP_N3     &kp KP_ENTER    &kp RSHFT
+     &mo APPS    &kp GRAVE    &kp CAPS              &kp LEFT          &kp AMPERSAND                             &kp BSPC  &kp DEL   &kp END                  &kp PG_DN  &kp ENTER  &kp KP_N0           &kp LEFT  &kp DOWN     &kp KP_DOT         &kp RBKT        &mo APPS
+            >;
+        };
+
+
+        layer_Keypad {
+            bindings = <
+ &to DEFAULT       &kp N1      &kp N2                &kp N3                 &kp N4        &kp N5            &bootloader                                                               &mo MOD  &kp N6  &kp KP_NUM      &kp KP_EQUAL  &kp KP_DIVIDE  &kp KP_MULTIPLY  &bootloader
    &kp TAB        &kp Q    &kp AT        &kp LEFT_BRACE        &kp RIGHT_BRACE         &kp T                  &none                                                               &none   &kp Y   &kp KP_N7         &kp KP_N8      &kp KP_N9     &kp KP_MINUS     &kp BSLH
    &kp ESC       &kp HASH  &kp DOLLAR  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp ASTERISK                  &none   &trans    &trans   &none   &none     &trans     &trans      &none   &kp H   &kp KP_N4         &kp KP_N5      &kp KP_N6      &kp KP_PLUS      &kp SQT
- &kp LSHFT  &kp PERCENT   &kp CARET      &kp LEFT_BRACKET      &kp RIGHT_BRACKET     &kp GRAVE                  &none    &none  &to 4   &none   &none  &kp PG_UP      &none      &none   &kp N   &kp KP_N1         &kp KP_N2      &kp KP_N3     &kp KP_ENTER    &kp RSHFT
-     &mo 2    &kp GRAVE    &kp CAPS              &kp LEFT          &kp AMPERSAND                             &kp BSPC  &kp DEL   &kp END                  &kp PG_DN  &kp ENTER  &kp KP_N0           &kp EQUAL  &kp GREATER_THAN     &kp KP_DOT         &kp RBKT        &mo 2
+ &kp LSHFT  &kp PERCENT   &kp CARET      &kp LEFT_BRACKET      &kp RIGHT_BRACKET     &kp GRAVE                  &none    &none  &to COLEMAK   &none   &none  &kp PG_UP      &none      &none   &kp N   &kp KP_N1         &kp KP_N2      &kp KP_N3     &kp KP_ENTER    &kp RSHFT
+     &mo APPS    &kp GRAVE    &kp CAPS              &kp LEFT          &kp AMPERSAND                             &kp BSPC  &kp DEL   &kp END                  &kp PG_DN  &kp ENTER  &kp KP_N0           &kp EQUAL  &kp GREATER_THAN     &kp KP_DOT         &kp RBKT        &mo APPS
             >;
         };
 
         layer_Apps {
             bindings = <
-&trans &trans            &trans                   &trans    &trans  &trans             &trans                                                                                 &trans  &trans    &trans     &trans   &trans     &trans      &trans
+&trans &kp F1            &kp F2                   &kp F3    &kp F4  &kp F5             &kp F6                                                                                 &kp F7  &kp F8    &kp F9     &kp F10   &kp F11     &kp F12      &trans
 &trans    &kp LS(LA(LC(LG(Q))))    &kp LS(LA(LC(LG(W))))    &kp LS(LA(LC(LG(E))))    &kp LS(LA(LC(LG(R))))  &kp LS(LA(LC(LG(T))))           &trans                                                                                 &trans   &kp LS(LA(LC(LG(Y))))    &kp LS(LA(LC(LG(U))))     &kp LS(LA(LC(LG(I))))   &kp LS(LA(LC(LG(O))))     &kp LS(LA(LC(LG(P))))  &trans
 &trans    &kp LS(LA(LC(LG(A))))    &kp LS(LA(LC(LG(S))))    &kp LS(LA(LC(LG(D))))    &kp LS(LA(LC(LG(F))))  &kp LS(LA(LC(LG(G))))           &trans  &trans       &trans   &trans   &trans         &trans      &trans  &trans   &kp LS(LA(LC(LG(H))))    &kp LS(LA(LC(LG(J))))     &kp LS(LA(LC(LG(K))))   &kp LS(LA(LC(LG(L))))  &trans    &trans
 &trans    &kp LS(LA(LC(LG(Z))))    &kp LS(LA(LC(LG(X))))    &kp LS(LA(LC(LG(C))))    &kp LS(LA(LC(LG(V))))  &kp LS(LA(LC(LG(B))))             &trans      &trans      &trans   &trans   &trans        &trans          &trans      &trans   &kp LS(LA(LC(LG(N))))    &kp LS(LA(LC(LG(M)))) &trans  &trans   &trans  &trans
@@ -70,7 +88,7 @@
 
         layer_Colemak {
             bindings = <
- &to 0  &trans  &trans  &trans  &trans  &trans             &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+ &to DEFAULT  &trans  &trans  &trans  &trans  &trans             &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans  &trans
  &trans   &kp Q   &kp W   &kp F   &kp P   &kp G            &trans                                                  &trans  &kp J  &kp L  &kp U  &kp Y  &kp SEMI  &trans
  &trans  &kp A  &kp R  &kp S  &kp T  &kp D                 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp H  &kp N  &kp E  &kp I  &kp O  &trans
  &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp K  &trans  &trans  &trans  &trans  &trans
