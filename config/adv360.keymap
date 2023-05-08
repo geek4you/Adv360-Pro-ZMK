@@ -14,6 +14,8 @@
 #define APPS    3
 #define MOD     4
 #define COLEMAK 5
+#define TEST_LAYER 6
+
 
 / {
   behaviors {
@@ -37,21 +39,21 @@
 
         default_layer {
             bindings = <
-     &kp LC(UP)        &kp N1    &kp N2    &kp N3    &kp N4  &kp N5             &tog SYMBOLS                                                                                 &mo MOD  &kp N6    &kp N7     &kp N8   &kp N9     &kp N0      &sl APPS
-       &kp TAB         &kp Q     &kp W     &kp E     &kp R   &kp T            &kp DEL                                                                                 &none   &kp Y     &kp U      &kp I    &kp O      &kp P   &kp BSLH
-     &kp MINUS         &kp A     &kp S     &kp D     &kp F   &kp G            &kp ESC  &kp GRAVE       &tog KEYPAD   &none   &none         &kp LGUI      &kp RCTRL  &kp MINUS   &kp H     &kp J      &kp K    &kp L   &kp SEMI    &kp SQT
-&kp LEFT_SHIFT         &kp Z     &kp X     &kp C     &kp V   &kp B              &none      &none      &kp DELETE   &none   &none        &tog SYMBOLS          &none      &none   &kp N     &kp M  &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-     &kp LCTRL  &kp LEFT_ALT  &kp CAPS  &kp TAB  &kp LCMD                      &mo SYMBOLS  &kp ENTER  &kp LEFT_SHIFT                  &kp LS(LEFT_ALT)  &kp SPACE  &kp BACKSPACE          &kp LEFT   &kp DOWN   &kp UP  &kp RIGHT      &mo APPS
+     &kp LC(UP)   &kp N1        &kp N2    &kp N3    &kp N4    &kp N5       &tog SYMBOLS                                                                                              &mo MOD    &kp N6            &kp N7     &kp N8     &kp N9     &kp N0     &sl APPS
+       &kp TAB    &kp Q         &kp W     &kp E     &kp R     &kp T        &tog TEST_LAYER                                                                                                   &none      &kp Y             &kp U      &kp I      &kp O      &kp P      &kp BSLH
+     &kp MINUS    &kp A         &kp S     &kp D     &kp F     &kp G        &kp ESC      &kp GRAVE        &tog KEYPAD       &none      &none             &kp LGUI          &kp LS(LEFT_ALT)  &kp MINUS  &kp H             &kp J      &kp K      &kp L      &kp SEMI   &kp SQT
+&kp LEFT_SHIFT    &kp Z         &kp X     &kp C     &kp V     &kp B        &none        &none            &kp DEL        &none      &none             &tog SYMBOLS      &none      &none      &kp N             &kp M      &kp COMMA  &kp DOT    &kp FSLH   &kp RSHFT
+     &kp LCTRL    &kp LEFT_ALT  &kp CAPS  &kp TAB   &kp LCMD  &mo SYMBOLS  &kp ENTER    &kp LEFT_SHIFT   &kp RCTRL  &kp SPACE  &kp BACKSPACE                                                               &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &mo APPS
             >;
         };
 
         layer_Symbols {
             bindings = <
- &to DEFAULT       &kp N1      &kp N2                &kp N3                 &kp N4        &kp N5            &bootloader                                                               &mo MOD  &kp N6  &kp KP_NUM      &kp KP_EQUAL  &kp KP_DIVIDE  &kp KP_MULTIPLY  &bootloader
+ &to DEFAULT       &kp C_BRI_INC      &kp C_BRI_DEC                &kp N3                 &kp N4        &kp N5            &bootloader                                                               &mo MOD  &kp C_PREV  &kp C_PP      &kp  C_NEXT  &kp KP_DIVIDE  &kp KP_MULTIPLY  &bootloader
    &kp TAB        &kp Q    &kp AT        &kp LEFT_BRACE        &kp RIGHT_BRACE         &kp T                  &none                                                               &none   &kp Y   &kp KP_N7         &kp KP_N8      &kp KP_N9     &kp KP_MINUS     &kp BSLH
    &kp ESC       &kp HASH  &kp DOLLAR  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp ASTERISK                  &none   &trans    &trans   &none   &none     &trans     &trans      &none   &kp H   &kp EQUAL         &kp GREATER_THAN      &kp KP_N6      &kp KP_PLUS      &kp SQT
  &kp LSHFT  &kp PERCENT   &kp CARET      &kp LEFT_BRACKET      &kp RIGHT_BRACKET     &kp GRAVE                  &none    &none  &to COLEMAK   &none   &none  &kp PG_UP      &none      &none   &kp N   &kp KP_N1         &kp KP_N2      &kp KP_N3     &kp KP_ENTER    &kp RSHFT
-     &mo APPS    &kp GRAVE    &kp CAPS              &kp LEFT          &kp AMPERSAND                             &kp BSPC  &kp DEL   &kp END                  &kp PG_DN  &kp ENTER  &kp KP_N0           &kp LEFT  &kp DOWN     &kp KP_DOT         &kp RBKT        &mo APPS
+     &mo APPS    &kp GRAVE    &kp CAPS              &kp LEFT          &kp AMPERSAND                             &kp BSPC  &kp DEL   &kp END                  &kp PG_DN  &kp SPACE  &kp BACKSPACE           &kp LEFT  &kp DOWN     &kp KP_DOT         &kp RBKT        &mo APPS
             >;
         };
 
@@ -62,7 +64,7 @@
    &kp TAB        &kp Q    &kp AT        &kp LEFT_BRACE        &kp RIGHT_BRACE         &kp T                  &none                                                               &none   &kp Y   &kp KP_N7         &kp KP_N8      &kp KP_N9     &kp KP_MINUS     &kp BSLH
    &kp ESC       &kp HASH  &kp DOLLAR  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp ASTERISK                  &none   &trans    &trans   &none   &none     &trans     &trans      &none   &kp H   &kp KP_N4         &kp KP_N5      &kp KP_N6      &kp KP_PLUS      &kp SQT
  &kp LSHFT  &kp PERCENT   &kp CARET      &kp LEFT_BRACKET      &kp RIGHT_BRACKET     &kp GRAVE                  &none    &none  &to COLEMAK   &none   &none  &kp PG_UP      &none      &none   &kp N   &kp KP_N1         &kp KP_N2      &kp KP_N3     &kp KP_ENTER    &kp RSHFT
-     &mo APPS    &kp GRAVE    &kp CAPS              &kp LEFT          &kp AMPERSAND                             &kp BSPC  &kp DEL   &kp END                  &kp PG_DN  &kp ENTER  &kp KP_N0           &kp EQUAL  &kp GREATER_THAN     &kp KP_DOT         &kp RBKT        &mo APPS
+  &trans       &trans      &trans                &trans          &kp AMPERSAND                               &trans   &trans    &trans                     &trans  &kp ENTER  &kp KP_N0           &kp EQUAL  &kp GREATER_THAN     &kp KP_DOT           &trans          &trans
             >;
         };
 
@@ -93,6 +95,16 @@
  &trans  &kp A  &kp R  &kp S  &kp T  &kp D                 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp H  &kp N  &kp E  &kp I  &kp O  &trans
  &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp K  &trans  &trans  &trans  &trans  &trans
  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans                  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        layer_test {
+            bindings = <
+ &to DEFAULT  &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp A &kp B &kp C &kp D
+       &kp N0 &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp A &kp B &kp C &kp D
+       &kp N0 &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp A &kp B &kp C &kp D &kp E &kp F &kp G &kp H &kp I &kp J
+       &kp N0 &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp A &kp B &kp C &kp D &kp E &kp F &kp G &kp H &kp I &kp J
+       &kp N0 &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6 &kp N7 &kp N8 &kp N9 &kp A &kp B &kp C &kp D &kp E &kp F
             >;
         };
 
