@@ -7,6 +7,7 @@
 
 #define HYPER LS(LC(LA(LCMD)))
 #define MEH LS(LC(LEFT_ALT))
+#define AMYTH LS(LEFT_ALT)
 
 #define DEFAULT 0
 #define SYMBOLS 1
@@ -39,12 +40,24 @@
 
         default_layer {
             bindings = <
-     &kp LC(UP)   &kp N1        &kp N2    &kp N3    &kp N4    &kp N5       &tog SYMBOLS                                                                                              &mo MOD    &kp N6            &kp N7     &kp N8     &kp N9     &kp N0     &sl APPS
-       &kp TAB    &kp Q         &kp W     &kp E     &kp R     &kp T        &tog TEST_LAYER                                                                                                   &none      &kp Y             &kp U      &kp I      &kp O      &kp P      &kp BSLH
-     &kp MINUS    &kp A         &kp S     &kp D     &kp F     &kp G        &kp ESC      &kp GRAVE        &tog KEYPAD       &none      &none             &kp LGUI          &kp LS(LEFT_ALT)  &kp MINUS  &kp H             &kp J      &kp K      &kp L      &kp SEMI   &kp SQT
-&kp LEFT_SHIFT    &kp Z         &kp X     &kp C     &kp V     &kp B        &none        &none            &kp DEL        &none      &none             &tog SYMBOLS      &none      &none      &kp N             &kp M      &kp COMMA  &kp DOT    &kp FSLH   &kp RSHFT
-     &kp LCTRL    &kp LEFT_ALT  &kp CAPS  &kp TAB   &kp LCMD  &mo SYMBOLS  &kp ENTER    &kp LEFT_SHIFT   &kp RCTRL  &kp SPACE  &kp BACKSPACE                                                               &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &mo APPS
+      /*───────────┬─────────────┬────────────┬────────────┬────────────┬──────────┬──────────────┬─────────────┬────────────┬─────────────────┬────────┬────────┬────────────┬──────────────┬───────────────┬────────────┬─────────┬──────────┬───────────┬─────────┬────────────┬─────────────────*/
+      /*           │             │            │            │            │          │              │             │            │                 │        │        │            │              │               │            │         │          │           │         │            │                 */
+        &kp LC(UP)   &kp N1         &kp N2       &kp N3       &kp N4       &kp N5     &tog SYMBOLS                                                                                                              &mo MOD       &kp N6   &kp N7     &kp N8      &kp N9     &kp N0      &kp APPS
+      /*───────────┬─────────────┬────────────┬────────────┬────────────┬──────────┬──────────────┬─────────────┬────────────┬─────────────────┬────────┬────────┬────────────┬──────────────┬───────────────┬────────────┬─────────┬──────────┬───────────┬─────────┬────────────┬─────────────────*/
+      /*           │   Q         │            │            │            │          │              │             │            │                 │        │        │            │              │               │            │         │          │           │         │            │                 */
+        &kp TAB      &kp Q          &kp W        &kp E        &kp R        &kp T      &kp DEL                                                                                                                   &none         &kp Y    &kp U      &kp I       &kp O      &kp P       &kp BSLH
+      /*───────────┬─────────────┬────────────┬────────────┬────────────┬──────────┬──────────────┬─────────────┬────────────┬─────────────────┬────────┬────────┬────────────┬──────────────┬───────────────┬────────────┬─────────┬──────────┬───────────┬─────────┬────────────┬─────────────────*/
+      /*           │   A         │            │            │            │          │              │             │            │                 │        │        │            │              │               │            │         │          │           │         │            │                 */
+        &kp MINUS    &kp A          &kp S        &kp D        &kp F        &kp G      &kp ESC                      &kp GRAVE     &tog KEYPAD       &none   &none    &kp LGUI      &kp AMYTH                     &kp MINUS     &kp H    &kp J      &kp K       &kp L      &kp SEMI    &kp SQT
+      /*───────────┬─────────────┬────────────┬────────────┬────────────┬──────────┬──────────────┬─────────────┬────────────┬─────────────────┬────────┬────────┬────────────┬──────────────┬───────────────┬────────────┬─────────┬──────────┬───────────┬─────────┬────────────┬─────────────────*/
+      /*           │   Z         │            │            │            │          │              │             │            │                 │        │        │            │              │               │            │         │          │           │         │            │                 */
+        &kp LSHFT    &kp Z          &kp X        &kp C        &kp V        &kp B                     &none         &none         &kp TAB           &none   &none    &kp CAPS      &none         &none                         &kp N    &kp M      &kp COMMA   &kp DOT    &kp FSLH    &kp RSHFT
+      /*───────────┬─────────────┬────────────┬────────────┬────────────┬──────────┬──────────────┬─────────────┬────────────┬─────────────────┬────────┬────────┬────────────┬──────────────┬───────────────┬────────────┬─────────┬──────────┬───────────┬─────────┬────────────┬─────────────────*/
+      /*           │             │            │            │            │          │              │             │            │                 │        │        │            │              │               │            │         │          │           │         │            │                 */
+        &kp LCTRL    &kp LEFT_ALT   &kp MINUS    &kp EQUAL    &kp LCMD                               &mo SYMBOLS   &kp ENTER     &kp LEFT_SHIFT                     &kp RCTRL     &kp SPACE     &kp BACKSPACE                          &kp LEFT   &kp DOWN    &kp UP     &kp RIGHT   &mo APPS
+      /*────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────*/
             >;
+
         };
 
         layer_Symbols {
