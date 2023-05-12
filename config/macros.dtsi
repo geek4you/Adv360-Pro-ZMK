@@ -66,3 +66,11 @@ wait-ms = <30>;
 tap-ms = <40>;
 bindings = <&kp LS(V)>, <&kp PERCENT>;
 };
+macro_tmux_vim: macro_tmux_vim {
+compatible = "zmk,behavior-macro";
+label = "macro_vimsbb";
+#binding-cells = <0>;
+wait-ms = <30>;
+tap-ms = <40>;
+bindings = <&kp LG(S)>, <&kp LBRC>;
+};
