@@ -37,6 +37,14 @@
     };
   };
 
+  // conditional_layers {
+  //   compatible = "zmk,conditional-layers";
+  //   tri_layer {
+  //     if-layers = <DEFAULT COLEMAK>;
+  //     then-layer = <SYMBOLS>;
+  //   };
+  // };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -74,7 +82,7 @@
                 &trans       &trans         &kp AT        &kp LBRC    &kp RBRC    &trans       &trans                                                                                                                   &none           &trans       &trans     &trans      &trans     &trans       &trans
               /*───────────┬─────────────┬────────────┬────────────┬────────────┬──────────┬──────────────┬─────────────┬────────────┬─────────────────┬────────┬────────┬────────────┬──────────────┬───────────────┬──────────────┬────────────┬──────────┬───────────┬───────────┬────────────┬─────────────────*/
               /*           │   A         │    S       │     D      │     F      │    G     │    〇2       │     ∅       │            │                 │        │        │            │              │     ∅         │    〇4       │    H       │    =     │    >      │     |     │     ;      │     '           */
-                &trans       &kp HASH       &kp DOLLAR    &kp LPAR    &kp RPAR    &kp STAR     &trans                        &none          &trans         BLANK    BLANK    &trans      &trans                         &none           &trans       &kp EQUAL  &kp GT      &kp PIPE    &trans       &trans
+                &trans       &kp HASH       &kp DOLLAR    &kp LPAR    &kp RPAR    &kp TAB     &trans                        &none          &trans         BLANK    BLANK    &trans      &trans                         &none           &kp STAR       &kp EQUAL  &kp GT      &kp PIPE    &trans       &trans
               /*───────────┬─────────────┬────────────┬────────────┬────────────┬──────────┬──────────────┬─────────────┬────────────┬─────────────────┬────────┬────────┬────────────┬──────────────┬───────────────┬──────────────┬────────────┬──────────┬───────────┬───────────┬────────────┬─────────────────*/
               /*  Shift    │   Z         │    X       │     C      │     V      │    B     │      ∅       │             │            │                 │        │        │            │              │               │    ∅         │    &       │    M     │    ,      │     .     │     ?      │     Shift       */
                &macro_vimsbb &kp PERCENT    &kp CARET     &kp LBKT    &kp RBKT     &kp GRAVE                  BLANK        BLANK          &trans         BLANK    BLANK    &trans      BLANK            BLANK                         &kp AMPS       &trans     &trans      &trans       &trans       &trans
@@ -120,9 +128,9 @@
             bindings = <
  &to DEFAULT  &trans  &trans  &trans  &trans  &trans             &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans  &trans
  &trans   &kp Q   &kp W   &kp F   &kp P   &kp G            &trans                                                  &trans  &kp J  &kp L  &kp U  &kp Y  &kp SEMI  &trans
- &trans  &kp A  &kp R  &kp S  &kp T  &kp D                 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp H  &kp N  &kp E  &kp I  &kp O  &trans
+ &trans  &kp A   &kp R   &kp S   &kp T   &kp D   &trans                       &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp H  &kp N  &kp E  &kp I  &kp O  &trans
  &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp K  &trans  &trans  &trans  &trans  &trans
- &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans                  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+ &trans  &trans  &trans  &trans  &trans                    &mo SYMBOLS  &trans  &trans                  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
             >;
         };
 
@@ -142,7 +150,7 @@
                 &kp LSHFT    &kp Z          &kp DV_LCUT  &kp DV_RCUT  &kp V        &kp B                     BLANK         BLANK         &kp TAB         BLANK     BLANK   &kp CAPS      BLANK         BLANK                            &kp N       &kp M      &kp COMMA   &kp DOT    &kp FSLH      &kp RSHFT
               /*───────────┬─────────────┬────────────┬────────────┬────────────┬──────────┬──────────────┬─────────────┬────────────┬─────────────────┬────────┬────────┬────────────┬──────────────┬───────────────┬──────────────┬────────────┬──────────┬───────────┬───────────┬────────────┬─────────────────*/
               /*           │             │            │            │            │          │              │             │            │                 │        │        │            │              │               │              │            │          │           │           │            │                 */
-                &kp LCTRL    &kp LEFT_ALT   &kp MINUS    &kp EQUAL    &kp LCMD                               &mo SYMBOLS   &kp ENTER     &kp LEFT_SHIFT                    &kp RCTRL     &kp SPACE     &kp BACKSPACE                               &kp LEFT   &kp DOWN    &kp UP     &kp RIGHT     &mo APPS
+                &kp LCTRL    &kp LEFT_ALT   &kp MINUS    &kp EQUAL    &kp LCMD                               &mo SYMBOLS   &kp ENTER     &kp LEFT_SHIFT                    &kp RCTRL     &kp SPACE     &kp BACKSPACE                               &kp LEFT   &kp DOWN    &kp UP     &kp RIGHT     &tog MOVE
               /*─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────*/
             >;
         };
