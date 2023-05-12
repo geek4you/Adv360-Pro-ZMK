@@ -79,7 +79,7 @@
                &macro_vimsbb &kp PERCENT    &kp CARET     &kp LBKT    &kp RBKT     &kp GRAVE                  BLANK        BLANK          &trans         BLANK    BLANK    &trans      BLANK            BLANK                         &kp AMPS       &trans     &trans      &trans       &trans       &trans
               /*───────────┬─────────────┬────────────┬────────────┬────────────┬──────────┬──────────────┬─────────────┬────────────┬─────────────────┬────────┬────────┬────────────┬──────────────┬───────────────┬──────────────┬────────────┬──────────┬───────────┬───────────┬────────────┬─────────────────*/
               /*  Ctrl     │   Alt       │            │            │    CMD     │    ∅     │      ∅       │             │            │                 │    ∅   │    ∅   │            │              │               │    ∅         │     ∅      │     ←    │     ↓     │    ↑      │     →      │                 */
-                &trans       &trans        &trans         &trans       &trans                                  &trans       &trans         &trans                           &trans      &trans           &trans                                     &kp C_MUTE  &kp C_VOL_UP  &kp C_VOL_DN &trans       &mo APPS
+                &trans       &trans        &trans         &trans       &trans                                  &trans       &trans         &trans                           &trans      &trans           &trans                                     &kp C_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP &trans &mo APPS
               /*─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────*/
             >;
         };
@@ -107,7 +107,7 @@
 
         layer_mod {
             bindings = <
-  &none  &kp C_BRI_INC  &kp C_BRI_DEC  &none  &none         &none         &none                                                                                                                                          &trans                   &bt BT_SEL 0 &bt BT_SEL 1       &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none
+  &none  &kp C_BRI_DEC  &kp C_BRI_INC  &none  &none         &none         &none                                                                                                                                          &trans                   &bt BT_SEL 0 &bt BT_SEL 1       &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none
   &none         &none         &none           &none         &none         &none            &bootloader                                                                                                                   &bootloader              &none        &none              &none         &none         &none         &none
   &none         &none         &none           &none         &none         &none            &rgb_ug RGB_MEFS_CMD 5   &bt BT_CLR     &none         &none         &none            &bt BT_CLR            &bt BT_CLR         &rgb_ug RGB_MEFS_CMD 5   &none        &none              &none         &none         &none         &none
   &none         &none         &none           &none         &macro_tmux_vim     &none            &none                    &none          &none         &none         &none            &none         &none               &none                           &none        &none              &none         &none         &none         &none
