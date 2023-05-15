@@ -68,9 +68,9 @@ bindings = <&kp LS(V)>, <&kp PERCENT>;
 };
 macro_tmux_vim: macro_tmux_vim {
 compatible = "zmk,behavior-macro";
-label = "macro_vimsbb";
+label = "macro_tmux_vim";
 #binding-cells = <0>;
 wait-ms = <30>;
 tap-ms = <40>;
-bindings = <&kp LG(S)>, <&kp LBRC>;
+bindings = <&kp LG(S)>, <&kp LBKT>;
 };
