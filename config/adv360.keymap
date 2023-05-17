@@ -12,14 +12,13 @@
 #define DV_LCUT LG(LS(LBKT))
 #define DV_RCUT LG(LS(RBKT))
 
-#define DEFAULT 0
-#define SYMBOLS 1
-#define KEYPAD  2
-#define APPS    3
-#define MOD     4
-#define COLEMAK 5
-#define MOVE 6
-
+#define PRIMARY 0
+#define COLEMAK 1
+#define SYMBOLS 2
+#define KEYPAD  3
+#define APPS    4
+#define MOD     5
+#define MOVE    6
 
 / {
   behaviors {
@@ -60,7 +59,7 @@
   // conditional_layers {
   //   compatible = "zmk,conditional-layers";
   //   tri_layer {
-  //     if-layers = <DEFAULT COLEMAK>;
+  //     if-layers = <PRIMARY COLEMAK>;
   //     then-layer = <SYMBOLS>;
   //   };
   // };
@@ -70,16 +69,16 @@
 
         default_layer {
             bindings = <
-  //    0            1                                                                      6              7             8               9            10       11         12           13             14               15                                                                           21
+  //    1            2             3            4             5                 6           7              8             9               10            11       12         13           14             15               16           17         18         19           20          21               22
   /*───────────┬─────────────┬────────────┬────────────┬───────────────────┬──────────┬──────────────┬─────────────┬────────────┬─────────────────┬────────┬────────┬────────────┬──────────────┬───────────────┬──────────────┬────────────┬──────────┬───────────┬───────────┬────────────┬─────────────────*/
   /*    ±      │     1       │     2      │     3      │     4             │    5     │     KP       │     ∅       │     ∅      │        ∅        │   ∅    │   ∅    │     ∅      │     ∅        │     ∅         │     Mod      │     6      │    7     │    8      │    9      │     0      │      -=         */
-    &kp LC(UP)   &kp N1         &kp N2        &kp N3      &kp N4             &kp N5     &tog COLEMAK                                                                                                             &mo MOD          &kp N6      &kp N7     &kp N8      &kp N9      &kp N0       &sl APPS
+    &kp LC(UP)   &kp N1         &kp N2        &kp N3      &kp N4             &kp N5     &tog COLEMAK                                                                                                             &mo MOD          &kp N6       &kp N7     &kp N8      &kp N9      &kp N0       &sl APPS
   /*───────────┬─────────────┬────────────┬────────────┬───────────────────┬──────────┬──────────────┬─────────────┬────────────┬─────────────────┬────────┬────────┬────────────┬──────────────┬───────────────┬──────────────┬────────────┬──────────┬───────────┬───────────┬────────────┬─────────────────*/
   /*   Tab     │   Q         │    W       │     E      │     R             │    T     │    〇1       │     ∅       │     ∅      │        ∅        │   ∅    │   ∅    │     ∅      │     ∅        │     ∅         │    〇3       │    Y       │    U     │    I      │     O     │     P      │     \           */
-    &kp TAB      &kp Q          &kp W         &kp E       &kp R              &kp T      &kp DEL                                                                                                                  &tog KEYPAD      &kp Y       &kp U      &kp I       &kp O       &kp P        &kp BSLH
+    &kp TAB      &kp Q          &kp W         &kp E       &kp R              &kp T      &kp DEL                                                                                                                  &tog KEYPAD      &kp Y        &kp U      &kp I       &kp O       &kp P        &kp BSLH
   /*───────────┬─────────────┬────────────┬────────────┬───────────────────┬──────────┬──────────────┬─────────────┬────────────┬─────────────────┬────────┬────────┬────────────┬──────────────┬───────────────┬──────────────┬────────────┬──────────┬───────────┬───────────┬────────────┬─────────────────*/
-  /*           │   A         │    S       │     D      │     F             │    G     │    〇2       │     ∅       │            │                 │        │        │            │              │     ∅         │    〇4       │    H       │    =     │    >      │     |     │     ;      │     '           */
-    &kp MINUS    &gqt LCTRL A   &gqt LGUI S   &gqt LALT D  &gqt LSHIFT F     &kp G      &kp ESC                      &mo MOVE       &kp GRAVE       BLANK    BLANK    &kp LGUI      &kp AMYTH                    &kp MINUS      &kp H  &kp J     &kp K       &kp L       &kp SEMI     &kp SQT
+  /*           │   A         │    S       │     D      │     F             │    G     │    〇2       │     ∅       │            │                 │        │        │            │              │     ∅         │    〇4       │    H       │    J     │    K      │     L     │     ;      │     '           */
+    &kp MINUS    &gqt LCTRL A   &gqt LGUI S   &gqt LALT D  &gqt LSHIFT F     &kp G      &kp ESC                      &mo MOVE       &kp GRAVE       BLANK    BLANK    &kp LGUI      &kp AMYTH                    &kp MINUS        &kp H        &kp J      &kp K       &kp L      &gqt RSHIFT SEMI &kp SQT
   /*───────────┬─────────────┬────────────┬────────────┬───────────────────┬──────────┬──────────────┬─────────────┬────────────┬─────────────────┬────────┬────────┬────────────┬──────────────┬───────────────┬──────────────┬────────────┬──────────┬───────────┬───────────┬────────────┬─────────────────*/
   /*  Shift    │   Z         │    X       │     C      │     V             │    B     │      ∅       │             │            │                 │        │        │            │              │               │    ∅         │    &       │    M     │    ,      │     .     │     ?      │     Shift       */
     &kp LSHFT    &kp Z          &kp X         &kp C       &kp V              &kp B                     BLANK         BLANK          &kp TAB         BLANK     BLANK   &kp CAPS      BLANK         BLANK                            &kp N       &kp M      &kp COMMA   &kp DOT    &kp FSLH     &kp RSHFT
@@ -91,11 +90,22 @@
 
         };
 
+
+        layer_Colemak {
+            bindings = <
+ &to PRIMARY  &trans  &trans  &trans  &trans  &trans  &trans                                                                         &trans  &trans  &trans  &trans  &trans  &trans    &trans
+ &trans       &kp Q   &kp W   &kp F   &kp P   &kp G   &trans                                                                         &trans  &kp J   &kp L   &kp U   &kp Y   &kp SEMI  &trans
+ &trans       &kp A   &kp R   &kp S   &kp T   &kp D   &trans                 &trans  &trans  &none   &none   &trans  &trans          &trans  &kp H   &kp N   &kp E   &kp I   &kp O     &trans
+ &trans       &trans  &trans  &trans  &trans  &trans            &none        &none   &trans  &none   &none   &trans  &none   &none           &trans  &kp K   &trans  &trans  &trans    &trans
+ &trans       &trans  &trans  &trans  &trans                    &mo SYMBOLS  &trans  &trans                  &trans  &trans  &trans                  &trans  &trans  &trans  &trans    &trans
+            >;
+        };
+
         layer_Symbols {
             bindings = <
               /*───────────┬─────────────┬────────────┬────────────┬────────────┬──────────┬──────────────┬─────────────┬────────────┬─────────────────┬────────┬────────┬────────────┬──────────────┬───────────────┬──────────────┬────────────┬──────────┬───────────┬───────────┬────────────┬─────────────────*/
               /*    ±      │     1       │     2      │     3      │     4      │    5     │     KP       │     ∅       │     ∅      │        ∅        │   ∅    │   ∅    │     ∅      │     ∅        │     ∅         │     Mod      │     6      │    7     │    8      │    9      │     0      │      -=         */
-                &to DEFAULT  &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4       &bootloader                                                                                                              &bootloader     &kp C_PREV  &kp C_PP    &trans      &trans      &trans       &bootloader
+                &to PRIMARY  &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4       &bootloader                                                                                                              &bootloader     &kp C_PREV  &kp C_PP    &trans      &trans      &trans       &bootloader
               /*───────────┬─────────────┬────────────┬────────────┬────────────┬──────────┬──────────────┬─────────────┬────────────┬─────────────────┬────────┬────────┬────────────┬──────────────┬───────────────┬──────────────┬────────────┬──────────┬───────────┬───────────┬────────────┬─────────────────*/
               /*   Tab     │   Q         │    W       │     E      │     R      │    T     │    〇1       │     ∅       │     ∅      │        ∅        │   ∅    │   ∅    │     ∅      │     ∅        │     ∅         │    〇3       │    Y       │    U     │    I      │     O     │     P      │     \           */
                 &trans       &trans         &kp AT        &kp LBRC    &kp RBRC    &trans       &trans                                                                                                                   &none           &trans       &trans     &trans      &trans     &trans       &trans
@@ -115,7 +125,7 @@
 
         layer_Keypad {
             bindings = <
- &to DEFAULT       &kp N1      &kp N2                &kp N3                 &kp N4        &kp N5            &bootloader                                                               &mo MOD  &kp N6  &kp KP_NUM      &kp KP_EQUAL  &kp KP_DIVIDE  &kp KP_MULTIPLY  &bootloader
+ &to PRIMARY       &kp N1      &kp N2                &kp N3                 &kp N4        &kp N5            &bootloader                                                               &mo MOD  &kp N6  &kp KP_NUM      &kp KP_EQUAL  &kp KP_DIVIDE  &kp KP_MULTIPLY  &bootloader
    &kp TAB        &kp Q    &kp AT        &kp LEFT_BRACE        &kp RIGHT_BRACE         &kp T                  &none                                                               &none   &kp Y   &kp KP_N7         &kp KP_N8      &kp KP_N9     &kp KP_MINUS     &kp BSLH
    &kp ESC       &kp HASH  &kp DOLLAR  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp ASTERISK                  &none   &trans    &trans   &none   &none     &trans     &trans      &none   &kp H   &kp KP_N4         &kp KP_N5      &kp KP_N6      &kp KP_PLUS      &kp SQT
  &kp LSHFT  &kp PERCENT   &kp CARET      &kp LEFT_BRACKET      &kp RIGHT_BRACKET     &kp GRAVE                  &none    &none  &to COLEMAK   &none   &none  &kp PG_UP      &none      &none   &kp N   &kp KP_N1         &kp KP_N2      &kp KP_N3     &kp KP_ENTER    &kp RSHFT
@@ -143,21 +153,11 @@
             >;
         };
 
-        layer_Colemak {
-            bindings = <
- &to DEFAULT  &trans  &trans  &trans  &trans  &trans             &trans                                                  &trans  &trans  &trans  &trans  &trans  &trans  &trans
- &trans   &kp Q   &kp W   &kp F   &kp P   &kp G            &trans                                                  &trans  &kp J  &kp L  &kp U  &kp Y  &kp SEMI  &trans
- &trans  &kp A   &kp R   &kp S   &kp T   &kp D   &trans                       &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp H  &kp N  &kp E  &kp I  &kp O  &trans
- &trans  &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp K  &trans  &trans  &trans  &trans  &trans
- &trans  &trans  &trans  &trans  &trans                    &mo SYMBOLS  &trans  &trans                  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
-            >;
-        };
-
         layer_Move {
             bindings = <
               /*───────────┬─────────────┬────────────┬────────────┬────────────┬──────────┬──────────────┬─────────────┬────────────┬─────────────────┬────────┬────────┬────────────┬──────────────┬───────────────┬──────────────┬────────────┬──────────┬───────────┬───────────┬────────────┬─────────────────*/
               /*           │             │            │            │            │          │              │             │            │                 │        │        │            │              │               │              │            │          │           │           │            │                 */
-                &to 0        &kp N1         &kp N2       &kp N3       &kp N4       &kp N5     &tog COLEMAK                                                                                                             &mo MOD          &kp N6      &kp N7     &kp N8      &kp N9     &kp N0        &sl APPS
+                &to PRIMARY  &kp N1         &kp N2       &kp N3       &kp N4       &kp N5     &tog COLEMAK                                                                                                             &mo MOD          &kp N6      &kp N7     &kp N8      &kp N9     &kp N0        &sl APPS
               /*───────────┬─────────────┬────────────┬────────────┬────────────┬──────────┬──────────────┬─────────────┬────────────┬─────────────────┬────────┬────────┬────────────┬──────────────┬───────────────┬──────────────┬────────────┬──────────┬───────────┬───────────┬────────────┬─────────────────*/
               /*           │   Q         │            │            │            │          │              │             │            │                 │        │        │            │              │               │              │            │          │           │           │            │                 */
                 &kp TAB      &kp Q          &kp W        &kp E        &kp R        &kp T      &kp DEL                                                                                                                  &tog KEYPAD      &kp Y       &kp U      &kp I       &kp O      &kp P         &kp BSLH
