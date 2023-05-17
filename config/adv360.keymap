@@ -11,6 +11,7 @@
 #define BLANK &none
 #define DV_LCUT LG(LS(LBKT))
 #define DV_RCUT LG(LS(RBKT))
+#define AS(keycode) &as LS(keycode) keycode
 
 #define PRIMARY 0
 #define COLEMAK 1
@@ -46,14 +47,24 @@
     };
 
     gqt: global-quick-tap {
-        compatible = "zmk,behavior-hold-tap";
-        label = "GLOBAL_QUICK_TAP";
-        #binding-cells = <2>;
-        flavor = "tap-preferred";
-        tapping-term-ms = <200>;
-        quick-tap-ms = <125>;
-        global-quick-tap;
-        bindings = <&kp>, <&kp>;
+      compatible = "zmk,behavior-hold-tap";
+      label = "GLOBAL_QUICK_TAP";
+      #binding-cells = <2>;
+      flavor = "tap-preferred";
+      tapping-term-ms = <200>;
+      quick-tap-ms = <125>;
+      global-quick-tap;
+      bindings = <&kp>, <&kp>;
+    };
+
+    as: auto_shift {
+      compatible = "zmk,behavior-hold-tap";
+      label = "AUTO_SHIFT";
+      #binding-cells = <2>;
+      tapping_term_ms = <135>;
+      quick_tap_ms = <0>;
+      flavor = "tap-preferred";
+      bindings = <&kp>, <&kp>;
     };
 
   // conditional_layers {
@@ -75,7 +86,7 @@
     &kp LC(UP)   &kp N1         &kp N2        &kp N3      &kp N4             &kp N5     &tog COLEMAK                                                                                                             &mo MOD          &kp N6       &kp N7     &kp N8      &kp N9      &kp N0       &sl APPS
   /*───────────┬─────────────┬────────────┬────────────┬───────────────────┬──────────┬──────────────┬─────────────┬────────────┬─────────────────┬────────┬────────┬────────────┬──────────────┬───────────────┬──────────────┬────────────┬──────────┬───────────┬───────────┬────────────┬─────────────────*/
   /*   Tab     │   Q         │    W       │     E      │     R             │    T     │    〇1       │     ∅       │     ∅      │        ∅        │   ∅    │   ∅    │     ∅      │     ∅        │     ∅         │    〇3       │    Y       │    U     │    I      │     O     │     P      │     \           */
-    &kp TAB      &kp Q          &kp W         &kp E       &kp R              &kp T      &kp DEL                                                                                                                  &tog KEYPAD      &kp Y        &kp U      &kp I       &kp O       &kp P        &kp BSLH
+    &kp TAB      &kp Q          &kp W         &kp E       &kp R              &kp T      &kp DEL                                                                                                                  &tog KEYPAD      &kp Y        &kp U      &kp I       &kp O       AS(P)        &kp BSLH
   /*───────────┬─────────────┬────────────┬────────────┬───────────────────┬──────────┬──────────────┬─────────────┬────────────┬─────────────────┬────────┬────────┬────────────┬──────────────┬───────────────┬──────────────┬────────────┬──────────┬───────────┬───────────┬────────────┬─────────────────*/
   /*           │   A         │    S       │     D      │     F             │    G     │    〇2       │     ∅       │            │                 │        │        │            │              │     ∅         │    〇4       │    H       │    J     │    K      │     L     │     ;      │     '           */
     &kp MINUS    &gqt LCTRL A   &gqt LGUI S   &gqt LALT D  &gqt LSHIFT F     &kp G      &kp ESC                      &mo MOVE       &kp GRAVE       BLANK    BLANK    &kp LGUI      &kp AMYTH                    &kp MINUS        &kp H        &kp J      &kp K       &kp L      &gqt RSHIFT SEMI &kp SQT
@@ -84,7 +95,7 @@
     &kp LSHFT    &kp Z          &kp X         &kp C       &kp V              &kp B                     BLANK         BLANK          &kp TAB         BLANK     BLANK   &kp CAPS      BLANK         BLANK                            &kp N       &kp M      &kp COMMA   &kp DOT    &kp FSLH     &kp RSHFT
   /*───────────┬─────────────┬────────────┬────────────┬───────────────────┬──────────┬──────────────┬─────────────┬────────────┬─────────────────┬────────┬────────┬────────────┬──────────────┬───────────────┬──────────────┬────────────┬──────────┬───────────┬───────────┬────────────┬─────────────────*/
   /*  Ctrl     │   Alt       │            │            │    CMD            │    ∅     │      ∅       │             │            │                 │    ∅   │    ∅   │            │              │               │    ∅         │     ∅      │     ←    │     ↓     │    ↑      │     →      │                 */
-    &kp LCTRL    &kp LEFT_ALT   &kp MINUS    &kp EQUAL    &kp LCMD                                     &mo SYMBOLS   &kp ENTER      &kp LEFT_SHIFT                    &kp RCTRL     &kp SPACE     &kp BACKSPACE                                &kp LEFT   &kp DOWN    &kp UP      &kp RIGHT    &tog MOVE
+    &kp LCTRL    &kp LEFT_ALT   &kp MINUS    &kp EQUAL    &kp LCMD                                     &mo SYMBOLS   &kp ENTER      &kp LEFT_SHIFT                    &kp RCTRL     &kp SPACE     &kp BACKSPACE                                &kp LEFT   &kp DOWN    &kp UP      &kp RIGHT    &kp RCTRL
   /*─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────*/
 >;
 
@@ -93,11 +104,11 @@
 
         layer_Colemak {
             bindings = <
- &to PRIMARY  &trans  &trans  &trans  &trans  &trans  &trans                                                                         &trans  &trans  &trans  &trans  &trans  &trans    &trans
- &trans       &kp Q   &kp W   &kp F   &kp P   &kp G   &trans                                                                         &trans  &kp J   &kp L   &kp U   &kp Y   &kp SEMI  &trans
- &trans       &kp A   &kp R   &kp S   &kp T   &kp D   &trans                 &trans  &trans  &none   &none   &trans  &trans          &trans  &kp H   &kp N   &kp E   &kp I   &kp O     &trans
- &trans       &trans  &trans  &trans  &trans  &trans            &none        &none   &trans  &none   &none   &trans  &none   &none           &trans  &kp K   &trans  &trans  &trans    &trans
- &trans       &trans  &trans  &trans  &trans                    &mo SYMBOLS  &trans  &trans                  &trans  &trans  &trans                  &trans  &trans  &trans  &trans    &trans
+ &to PRIMARY  &trans         &trans        &trans        &trans          &trans  &trans                                                                         &trans  &trans  &trans  &trans  &trans  &trans           &trans
+ &trans       &kp Q          &kp W         &kp F         &kp P           &kp G   &trans                                                                         &trans  &kp J   &kp L   &kp U   &kp Y   AS(SEMI)         &trans
+ &trans       &gqt LCTRL A   &gqt LGUI R   &gqt LALT S   &gqt LSHIFT T   &kp D   &trans                 &trans  &trans  &none   &none   &trans  &trans          &trans  &kp H   &kp N   &kp E   &kp I   &gqt RSHIFT O    &trans
+ &trans       &trans         &trans        &trans        &trans          &trans            &none        &none   &trans  &none   &none   &trans  &none   &none           &kp K   &kp M   &trans  &trans  &gqt RCTRL FSLH  &trans
+ &trans       &trans         &trans        &trans        &trans                            &mo SYMBOLS  &trans  &trans                  &trans  &trans  &trans                  &trans  &trans  &trans  &trans           &trans
             >;
         };
 
