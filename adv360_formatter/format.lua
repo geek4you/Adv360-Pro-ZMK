@@ -18,23 +18,20 @@ local borders = {
   bottom_right_corner = '┘',
 }
 
----@type {row: number, col: number, behavior: string, keys: string[], command: string}
+---@type { row: number, col: number, node: TSNode | nil, blank: boolean }
 local Cell = {
   row = -1,
   col = -1,
-  behavior = '',
-  keys = {},
-  command = '',
+  node = nil,
+  blank = false,
 }
 
----@param props {row: number, col: number, behavior: string | nil, keys: string[] | nil, command: string | nil, blank: boolean | nil}
+---@param props { row: number, col: number, node: TSNode | nil, blank: boolean | nil }
 function Cell:new(props)
   local cell = {
     row = props.row,
     col = props.col,
-    behavior = props.behavior or '',
-    keys = props.keys or {},
-    command = props.command or '',
+    node = props.node,
     blank = props.blank or false,
   }
   setmetatable(cell, self)
@@ -99,6 +96,35 @@ function Bindings:new()
   }
   setmetatable({}, self)
   self.cells = cells
+
+  self.iter_cells = function()
+    return coroutine.wrap(function()
+      for _, row in ipairs(self.cells) do
+        for _, cell in ipairs(row) do
+          coroutine.yield(cell)
+        end
+      end
+    end)
+  end
+
+  self.iter_rows = function()
+    return coroutine.wrap(function()
+      for _, row in ipairs(self.cells) do
+        coroutine.yield(row)
+      end
+    end)
+  end
+
+  self.iter_cols = function()
+    local col_count = #self.cells[1]
+    return coroutine.wrap(function()
+      for i = 1, col_count do
+        local col = self:get_col(i)
+        coroutine.yield(col)
+      end
+    end)
+  end
+
   return self
 end
 
@@ -133,8 +159,9 @@ function Bindings:max_length_in_column(col)
   end
 end
 
-local function get_keymap_bindings()
-  local results = u.get_query_results([[
+local function get_keymap_layers()
+  local match_index = 3
+  return u.get_query_results(match_index, [[
     (node
       name: (identifier) @keymap_node (#eq? @keymap_node "keymap")
       (node
@@ -142,26 +169,73 @@ local function get_keymap_bindings()
           name: (identifier) @name (#eq? @name "bindings")
           value: (integer_cells
                    (reference)) @cells)))
-  ]], 3)
-  return results
+  ]])
 end
 
----@param node TSNode
-local format_layer_bindings = function(node)
-  for _, child in ipairs(node:named_children()) do
-    t(child)
+---@param layer TSNode
+---@return table<integer, TSNode>
+local function get_layer_refs(layer)
+  return u.get_query_results(1, [[ (reference) @ref ]], layer)
+end
+
+---@param parent TSNode
+---@return table<integer, { ref: TSNode, siblings: table<integer, TSNode>, text: string }>
+local function get_behavior_nodes(parent)
+  ---@type table<integer, { ref: TSNode, siblings: table<integer, TSNode>, text: string }>
+  local references = {}
+  for _, child in ipairs(parent:named_children()) do
+    if child:type() == 'reference' then
+      ---@type { ref: TSNode, siblings: table<integer, TSNode > }
+      local ref = { ref = child, siblings = {} }
+      local s = u.gnt(child)
+      local sib = child:next_named_sibling()
+      while sib and sib:type() == 'identifier' or sib:type() == 'call_expression' do
+        s = s .. ' ' .. u.gnt(sib)
+        table.insert(ref.siblings, sib)
+        sib = sib:next_named_sibling()
+      end
+      ref.text = s
+      table.insert(references, ref)
+    end
+  end
+  return references
+end
+
+---@param layer_node TSNode
+local format_layer_bindings = function(layer_node)
+  local refs = get_behavior_nodes(layer_node)
+
+  local bindings = Bindings:new()
+  local i = 1
+  for _, row in ipairs(bindings.cells) do
+    for _, cell in ipairs(row) do
+      if not cell.blank then
+        cell.node = refs[i]
+        i = i + 1
+      end
+    end
+  end
+
+  for row in bindings.iter_rows() do
+    for _, cell in ipairs(row) do
+      if cell.node and #cell.node.siblings > -1 then
+        local s = u.gnt(cell.node.ref)
+        for _, sib in ipairs(cell.node.siblings) do
+          s = s .. ' ' .. u.gnt(sib)
+        end
+        p(s)
+      end
+    end
+    p('----------')
   end
 end
 
 M.format = function()
-  -- local bindings = get_keymap_bindings()
-  -- for _, layer_bindings in ipairs(bindings) do
-  --   format_layer_bindings(layer_bindings)
+  local keymaps = get_keymap_layers()
+  local layer_one = keymaps[1]
+  -- for _, layer_bindings in ipairs(keymaps) do
+  format_layer_bindings(layer_one)
   -- end
-  local bindings = Bindings:new()
-  for _, col in ipairs(bindings:get_col(1)) do
-    p(col)
-  end
 end
 
 M.format()

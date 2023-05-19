@@ -177,12 +177,13 @@ M.bulk_replace_lines = function(replacements)
 end
 
 
+---@param match_index integer | nil
 ---@param querystring string
----@param match_index integer
 ---@param node TSNode | nil
 ---@param limit integer | nil
 ---@return table<integer, TSNode>
-M.get_query_results = function(querystring, match_index, node, limit)
+M.get_query_results = function(match_index, querystring, node, limit)
+  match_index = match_index or 0
   local root, bufnr = M.get_root_node()
   node = node or root
   local lang = parsers.get_buf_lang(bufnr)
