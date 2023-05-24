@@ -97,9 +97,9 @@
         layer_Colemak {
             bindings = <
  &to PRIMARY  &trans         &trans        &trans        &trans          &trans  &trans                                                                         &trans  &trans  &trans  &trans  &trans  &trans           &trans
- &trans       &kp Q          &kp W         &kp F         &kp P           &kp B   &trans                                                                         &trans  &kp J   &kp L   &kp U   &kp Y   &kp SEMI         &trans
- &trans       &gqt LCTRL A   &gqt LALT R   &kp S         &gqt LSHIFT T   &kp G   &trans                 &trans  &trans  &none   &none   &trans  &trans          &trans  &kp M   &kp N   &kp E   &kp I   &gqt RSHIFT O    &trans
- &trans       &trans         &trans        &trans        &kp D           &kp V             &none        &none   &trans  &none   &none   &trans  &none   &none           &kp K   &kp H   &trans  &trans  &gqt RCTRL FSLH  &trans
+ &trans       &kp Q          &kp W         &kp F         &kp P           &kp G   &trans                                                                         &trans  &kp J   &kp L   &kp U   &kp Y   &kp SEMI         &trans
+ &trans       &gqt LCTRL A   &gqt LALT R   &kp S         &gqt LSHIFT T   &kp D   &trans                 &trans  &trans  &none   &none   &trans  &trans          &trans  &trans  &kp N   &kp E   &kp I   &gqt RSHIFT O    &trans
+ &trans       &trans         &trans        &trans        &trans          &trans            &none        &none   &trans  &none   &none   &trans  &none   &none           &kp K   &trans  &trans  &trans  &gqt RCTRL FSLH  &trans
  &trans       &trans         &trans        &trans        &trans                            &mo SYMBOLS  &trans  &trans                  &trans  &trans  &trans                  &trans  &trans  &trans  &trans           &trans
             >;
         };
