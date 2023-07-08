@@ -230,14 +230,12 @@ local format_layer_bindings = function(layer_node)
   end
 end
 
-M.format = function()
-  local keymaps = get_keymap_layers()
-  local layer_one = keymaps[1]
-  -- for _, layer_bindings in ipairs(keymaps) do
-  format_layer_bindings(layer_one)
-  -- end
-end
-
-M.format()
+-- M.format = function()
+local keymaps = get_keymap_layers()
+local layer_one = keymaps[1]
+-- for _, layer_bindings in ipairs(keymaps) do
+format_layer_bindings(layer_one)
+-- end
+-- end
 
 return M
