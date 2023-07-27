@@ -34,6 +34,16 @@
             hold-trigger-key-positions = <7 8 9 10 11 12 13 21 22 23 24 25 26 27 38 39 40 41 42 43 44 45 54 55 56 57 58 59 71 72 73 74 75 35 36 37 38 52 53 65 66 67 68 69 70 71>;
             hold-trigger-on-release;
         };
+        cpy_pst: cpy_pst {
+            compatible = "zmk,behavior-tap-dance";
+            label = "CPY_PST";
+            #binding-cells = <0>;
+            bindings =
+                <&kp LG(C)>,
+                <&kp LG(P)>;
+
+            tapping-term-ms = <125>;
+        };
     };
 
     keymap {
@@ -41,11 +51,11 @@
 
         default_layer {
             bindings = <
-&mt LS(LC(LG(LEFT_ALT))) DEL        &kp N1           &kp N2       &kp N3         &kp N4                       &kp N5     &kp N6                                                     &mo 3  &kp N6    &kp N7     &kp N8   &kp N9     &kp N0   &kp LGUI
-                     &kp TAB         &kp Q            &kp W        &kp F          &kp P                        &kp B  &kp MINUS                                                 &kp EQUAL   &kp J     &kp L      &kp U    &kp Y   &kp SEMI   &kp BSLH
-                     &kp ESC  &hml LCTRL A  &hml LEFT_ALT R  &hml LGUI S  &hml LSHIFT T  &hml LS(LC(LG(LEFT_ALT))) G  &kp MINUS    &kp SQT  &kp LALT       &kp LGUI  &kp RCTRL  &kp EQUAL   &kp M     &kp N      &kp E    &kp I      &kp O   &kp BSPC
-                   &kp LSHFT         &kp Z            &kp X        &kp C          &kp D                        &kp V                        &kp HOME      &kp PG_UP                         &kp K     &kp H  &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-                       &mo 1      &kp HOME        &kp PG_DN    &kp PG_UP        &kp END                                 &kp DEL  &kp SPACE   &kp END      &kp PG_DN  &kp ENTER  &kp SPACE          &kp LEFT   &kp DOWN   &kp UP  &kp RIGHT  &kp GRAVE
+&mt LS(LC(LG(LEFT_ALT))) DEL        &kp N1           &kp N2       &kp N3         &kp N4                       &kp N5        &kp F11                                                                            &kp F12  &kp N6    &kp N7     &kp N8   &kp N9     &kp N0   &kp LGUI
+                     &kp TAB         &kp Q            &kp W        &kp F          &kp P                        &kp B  &kp BACKSLASH                                                                  &kp LS(LA(MINUS))   &kp J     &kp L      &kp U    &kp Y   &kp SEMI   &kp BSLH
+                     &kp ESC  &hml LCTRL A  &hml LEFT_ALT R  &hml LGUI S  &hml LSHIFT T  &hml LS(LC(LG(LEFT_ALT))) G      &kp MINUS  &caps_word          &cpy_pst          &kp LS(LG(R))      &none          &kp EQUAL   &kp M     &kp N      &kp E    &kp I      &kp O   &kp BSPC
+                   &kp LSHFT         &kp Z            &kp X        &kp C          &kp D                        &kp V                                   &kp C_PREV             &kp C_NEXT                                 &kp K     &kp H  &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
+                       &mo 1      &kp HOME        &kp PG_DN    &kp PG_UP        &kp END                                  &kp DELETE   &kp SPACE  &kp SINGLE_QUOTE      &kp DOUBLE_QUOTES  &kp ENTER      &kp BACKSPACE          &kp LEFT   &kp DOWN   &kp UP  &kp RIGHT  &kp GRAVE
             >;
         };
 
