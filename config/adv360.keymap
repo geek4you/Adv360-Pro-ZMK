@@ -40,7 +40,7 @@
             #binding-cells = <0>;
             bindings =
                 <&kp LG(C)>,
-                <&kp LG(V)>;
+                <&kp LG(P)>;
 
             tapping-term-ms = <125>;
         };
@@ -66,21 +66,21 @@
 
         default_layer {
             bindings = <
-&mt LS(LC(LG(LEFT_ALT))) DEL  &mt EXCLAMATION NUMBER_1  &mt AT_SIGN NUMBER_2  &mt HASH NUMBER_3  &mt DOLLAR NUMBER_4         &mt PERCENT NUMBER_5        &kp F11                                                                                       &kp F12           &mt CARET NUMBER_6  &mt AMPERSAND NUMBER_7  &mt ASTERISK NUMBER_8  &mt LEFT_PARENTHESIS NUMBER_9  &mt RIGHT_PARENTHESIS NUMBER_0  &mt LS(LBKT) LBKT
-                     &kp TAB                     &kp Q                 &kp W              &kp F                &kp P                        &kp B  &kp BACKSLASH                                                                             &kp LS(LA(MINUS))                        &kp J                   &kp L                  &kp U                          &kp Y               &mt LS(SEMI) SEMI  &mt LS(RBKT) RBKT
-                     &kp ESC              &hml LCTRL A       &hml LEFT_ALT R        &hml LGUI S        &hml LSHIFT T  &hml LS(LC(LG(LEFT_ALT))) G      &kp MINUS  &caps_word          &cpy_pst          &kp LS(LG(R))  &kp LS(LC(LEFT_ALT))          &kp EQUAL  &hmr LS(LC(LG(LEFT_ALT))) M      &hmr RIGHT_SHIFT N        &hmr LEFT_GUI E               &hmr RIGHT_ALT I                    &hmr LCTRL O           &kp BSPC
-                   &kp LSHFT                     &kp Z                 &kp X              &kp C                &kp D                        &kp V                                   &kp C_PREV             &kp C_NEXT                                                                 &kp K                   &kp H    &mt LESS_THAN COMMA        &mt GREATER_THAN PERIOD               &mt QUESTION FSLH          &kp RSHFT
-                       &mo 1                  &kp HOME             &kp PG_DN          &kp PG_UP              &kp END                                   &kp SPACE   &kp SPACE  &kp SINGLE_QUOTE      &kp DOUBLE_QUOTES             &kp ENTER      &kp BACKSPACE                                             &kp LEFT               &kp DOWN                         &kp UP                       &kp RIGHT    &mt TILDE GRAVE
+&mt LS(LC(LG(LEFT_ALT))) DEL  &mt EXCLAMATION NUMBER_1  &mt AT_SIGN NUMBER_2  &mt HASH NUMBER_3  &mt DOLLAR NUMBER_4         &mt PERCENT NUMBER_5        &kp F11                                                                                       &kp F12           &mt CARET NUMBER_6  &mt AMPERSAND NUMBER_7  &mt ASTERISK NUMBER_8  &mt LEFT_PARENTHESIS NUMBER_9  &mt RIGHT_PARENTHESIS NUMBER_0         &kp LGUI
+                     &kp TAB                     &kp Q                 &kp W              &kp F                &kp P                        &kp B  &kp BACKSLASH                                                                             &kp LS(LA(MINUS))                        &kp J                   &kp L                  &kp U                          &kp Y                        &kp SEMI         &kp BSLH
+                     &kp ESC              &hml LCTRL A       &hml LEFT_ALT R        &hml LGUI S        &hml LSHIFT T  &hml LS(LC(LG(LEFT_ALT))) G      &kp MINUS  &caps_word          &cpy_pst          &kp LS(LG(R))  &kp LS(LC(LEFT_ALT))          &kp EQUAL  &hmr LS(LC(LG(LEFT_ALT))) M      &hmr RIGHT_SHIFT N       &hmr RIGHT_GUI E               &hmr RIGHT_ALT I                    &hmr RCTRL O         &kp BSPC
+                   &kp LSHFT                     &kp Z                 &kp X              &kp C                &kp D                        &kp V                                   &kp C_PREV             &kp C_NEXT                                                                 &kp K                   &kp H    &mt LESS_THAN COMMA        &mt GREATER_THAN PERIOD               &mt QUESTION FSLH        &kp RSHFT
+                       &mo 1                  &kp HOME             &kp PG_DN          &kp PG_UP              &kp END                                   &kp SPACE   &kp SPACE  &kp SINGLE_QUOTE      &kp DOUBLE_QUOTES             &kp ENTER      &kp BACKSPACE                                             &kp LEFT               &kp DOWN                         &kp UP                       &kp RIGHT  &mt TILDE GRAVE
             >;
         };
 
         layer_1 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                                                   &trans        &trans        &trans        &trans        &trans        &trans  &bootloader
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                                                   &trans        &trans        &trans        &trans        &trans        &trans       &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans      &trans       &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4       &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                                     &trans        &trans        &trans        &trans        &trans       &trans
-&trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &bl BL_TOG  &rgb_ug RGB_TOG                      &trans        &trans        &trans        &trans       &trans
+&bootloader  &trans  &trans  &trans  &trans  &trans  &trans                                                   &trans        &trans        &trans        &trans        &trans        &trans  &bootloader
+     &trans  &trans  &trans  &trans  &trans  &trans  &trans                                                   &trans        &trans        &trans        &trans        &trans        &trans       &trans
+     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans      &trans       &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4       &trans
+     &trans  &trans  &trans  &trans  &trans  &trans                  &trans      &trans                                     &trans        &trans        &trans        &trans        &trans       &trans
+     &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &bl BL_TOG  &rgb_ug RGB_TOG                      &trans        &trans        &trans        &trans       &trans
             >;
         };
     };
