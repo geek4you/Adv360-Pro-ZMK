@@ -40,7 +40,7 @@
             #binding-cells = <0>;
             bindings =
                 <&kp LG(C)>,
-                <&kp LG(P)>;
+                <&kp LG(V)>;
 
             tapping-term-ms = <125>;
         };
