@@ -64,7 +64,7 @@ label = "macro_vimsbb";
 #binding-cells = <0>;
 wait-ms = <30>;
 tap-ms = <40>;
-bindings = <&kp LS(N4)>, <&kp LS(V)>, <&kp PERCENT>;
+bindings = <&kp LS(N4)>, <&kp H>, <&kp LS(V)>, <&kp PERCENT>;
 };
 macro_tmux_vim: macro_tmux_vim {
 compatible = "zmk,behavior-macro";
@@ -73,4 +73,12 @@ label = "macro_tmux_vim";
 wait-ms = <30>;
 tap-ms = <40>;
 bindings = <&kp LG(S)>, <&kp LBKT>;
+};
+macro_codeblock: macro_codeblock {
+compatible = "zmk,behavior-macro";
+label = "macro_codeblock";
+#binding-cells = <0>;
+wait-ms = <30>;
+tap-ms = <40>;
+bindings = <&kp GRAVE>, <&kp GRAVE>, <&kp GRAVE>, <&kp LS(ENTER)>, <&kp GRAVE>, <&kp GRAVE>, <&kp GRAVE>, <&kp UP>, <&kp LS(ENTER)>;
 };
