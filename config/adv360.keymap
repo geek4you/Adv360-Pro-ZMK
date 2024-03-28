@@ -16,16 +16,13 @@
             tapping-term-ms = <200>;
             quick_tap_ms = <175>;
             flavor = "tap-preferred";
-            bindings =
-                <&kp>,
-                <&kp>;
+            bindings = <&kp>, <&kp>;
         };
+
         hml: hml {
             compatible = "zmk,behavior-hold-tap";
             label = "HML";
-            bindings =
-                <&kp>,
-                <&kp>;
+            bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <280>;
@@ -35,22 +32,20 @@
             hold-trigger-key-positions = <7 8 9 10 11 12 13 21 22 23 24 25 26 27 38 39 40 41 42 43 44 45 54 55 56 57 58 59 71 72 73 74 75 35 36 37 38 52 53 65 66 67 68 69 70 71>;
             hold-trigger-on-release;
         };
+
         cpy_pst: cpy_pst {
             compatible = "zmk,behavior-tap-dance";
             label = "CPY_PST";
             #binding-cells = <0>;
-            bindings =
-                <&kp LG(C)>,
-                <&kp LG(V)>;
+            bindings = <&kp LG(C)>, <&kp LG(V)>;
 
             tapping-term-ms = <125>;
         };
+
         hmr: hmr {
             compatible = "zmk,behavior-hold-tap";
             label = "HMR";
-            bindings =
-                <&kp>,
-                <&kp>;
+            bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <280>;
@@ -76,11 +71,11 @@
 
         default_layer {
             bindings = <
-&kp ESC    &mt EXCLAMATION NUMBER_1  &mt AT_SIGN NUMBER_2  &mt HASH NUMBER_3  &mt DOLLAR NUMBER_4  &mt PERCENT NUMBER_5         &kp F11                                                                            &kp F12            &mt CARET NUMBER_6           &mt AMPERSAND NUMBER_7  &mt ASTERISK NUMBER_8  &mt LEFT_PARENTHESIS NUMBER_9  &mt RIGHT_PARENTHESIS NUMBER_0  &mt LS(LEFT_BRACKET) LEFT_BRACKET
-&kp TAB    &kp Q                     &kp W                 &kp F              &kp P                &kp B                        &kp BACKSLASH                                                                      &kp LS(LA(MINUS))  &kp J                        &kp L                   &kp U                  &kp Y                          &mt LS(SEMI) SEMICOLON          &mt LS(RIGHT_BRACKET) RIGHT_BRACKET
-&kp DEL    &hml LCTRL A              &hml LEFT_ALT R       &hml LGUI S        &hml LSHIFT T        &hml LS(LC(LG(LEFT_ALT))) G  &kp MINUS      &caps_word  &cpy_pst              &kp LS(LG(C))      &kp RIGHT_ALT  &kp EQUAL          &hmr LS(LC(LG(LEFT_ALT))) M  &hmr RIGHT_SHIFT N      &hmr LEFT_GUI E        &hmr LEFT_ALT I                &hmr RCTRL O                    &kp BSPC
-&kp LSHFT  &kp Z                     &kp X                 &kp C              &kp D                &kp V                                                   &kp LS(LG(LBKT))      &kp LS(LG(RBKT))                                     &kp K                        &kp H                   &mt LESS_THAN COMMA    &mt GREATER_THAN PERIOD        &mt QUESTION FSLH               &kp RSHFT
-&mo 1      &kp LG(LEFT_ARROW)        &kp PG_DN             &kp PG_UP          &kp LG(RIGHT)                                     &mo 2          &kp SPACE   &kp SINGLE_QUOTE      &kp DOUBLE_QUOTES  &kp ENTER      &kp BACKSPACE                                   &kp LEFT                &kp DOWN               &kp UP                         &kp RIGHT                       &mt TILDE GRAVE
+&kp ESC                      &mt EXCLAMATION NUMBER_1  &mt AT_SIGN NUMBER_2  &mt HASH NUMBER_3  &mt DOLLAR NUMBER_4  &mt PERCENT NUMBER_5         &kp F11                                                                                         &kp F12                        &mt CARET NUMBER_6           &mt AMPERSAND NUMBER_7  &mt ASTERISK NUMBER_8  &mt LEFT_PARENTHESIS NUMBER_9  &mt RIGHT_PARENTHESIS NUMBER_0  &caps_word
+&kp TAB                      &kp Q                     &kp W                 &kp F              &kp P                &kp B                        &mt LEFT_BRACE LEFT_BRACKET                                                                     &mt RIGHT_BRACE RIGHT_BRACKET  &kp J                        &kp L                   &kp U                  &kp Y                          &mt LS(SEMI) SEMICOLON          &kp GRAVE
+&kp DEL                      &hml LCTRL A              &hml LEFT_ALT R       &hml LGUI S        &hml LSHIFT T        &hml LS(LC(LG(LEFT_ALT))) G  &kp MINUS                    &kp LG(C)  &kp LG(V)             &kp LS(LG(C))      &kp RIGHT_ALT  &kp EQUAL                      &hmr LS(LC(LG(LEFT_ALT))) M  &hmr RIGHT_SHIFT N      &hmr LEFT_GUI E        &hmr LEFT_ALT I                &hmr RCTRL O                    &kp BSPC
+&mt LEFT_SHIFT SINGLE_QUOTE  &kp Z                     &kp X                 &kp C              &kp D                &kp V                                                                &kp LS(LG(LBKT))      &kp LS(LG(RBKT))                                                 &kp K                        &kp H                   &mt LESS_THAN COMMA    &mt GREATER_THAN PERIOD        &mt QUESTION FSLH               &mt RIGHT_SHIFT DOUBLE_QUOTES
+&mo 1                        &kp LG(LEFT_ARROW)        &kp PG_DN             &kp PG_UP          &kp LG(RIGHT)                                     &mo 2                        &kp SPACE  &kp SINGLE_QUOTE      &kp DOUBLE_QUOTES  &kp ENTER      &kp LS(LA(LC(LG(SPACE))))                                   &kp LEFT                &kp DOWN               &kp UP                         &kp RIGHT                       &mt TILDE GRAVE
             >;
         };
 
