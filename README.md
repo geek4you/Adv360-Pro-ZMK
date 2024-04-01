@@ -79,6 +79,7 @@ By default this config repository references [a customised version of ZMK](https
 
 Whilst the Advantage 360 Pro is compatible with base ZMK some of the more advanced features will not work, and Kinesis cannot provide customer service for usage of base ZMK. Likewise the ZMK community cannot provide support for either the Kinesis keymap editor, nor any usage of the Kinesis custom fork.
 
+
 ## Other support
 
 Further support resources can be found on Kinesis.com:
